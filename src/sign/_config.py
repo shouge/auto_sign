@@ -15,3 +15,5 @@ PAYLOAD = {
 }
 
 SIGN_URL = "https://erp.bosum.com/erp/phone/attendanceSign/sign"
+
+SIGN_RECORD_URL = "https://erp.bosum.com/erp/phone/attendanceSign/getSignRecordByDay?date="

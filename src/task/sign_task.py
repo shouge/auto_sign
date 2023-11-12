@@ -14,12 +14,11 @@ class SignTask:
     def __init__(self):
         self._sign: Sign = Sign()
         self._checker: Checker = WorkDayChecker()
-        self._checker.set_next(TodaySignChecker(self._sign)).set_next(RandomChecker())
+        self._checker.set_next(TodaySignChecker(self._sign)).set_next(RandomChecker()).set_next(
+            TodaySignChecker(self._sign))
 
     def __call__(self, *args, **kwargs):
-        print("Starting Task Job!")
         check: bool = self._checker.check()
-        print("Checker check status is {}", check)
         if not check:
             return None
 
