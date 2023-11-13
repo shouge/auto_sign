@@ -1,7 +1,7 @@
 from apscheduler import Scheduler
 from apscheduler.triggers.cron import CronTrigger
 
-from task.sign_task import SignTask
+from src.task.sign_task import SignTask
 
 if __name__ == '__main__':
     scheduler = Scheduler()
