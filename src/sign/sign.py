@@ -21,7 +21,7 @@ class Sign(object):
         self._last_sign_out: date | None = None
 
     @retry(tries=3, delay=2, max_delay=5)
-    def _sign(self) -> bool:
+    def __sign(self) -> bool:
         sleep(randint(1, 16))
         response: requests.Response = requests.post(url=SIGN_URL, headers=HEADERS, json=PAYLOAD)
         if not requests.codes.ok == response.status_code:
@@ -58,7 +58,7 @@ class Sign(object):
         if self.check_sign_in_status():
             return None
 
-        sign_status: bool = self._sign()
+        sign_status: bool = self.__sign()
         if sign_status:
             self.update_last_sign_in()
 
@@ -66,7 +66,7 @@ class Sign(object):
         if self.check_sign_out_status():
             return None
 
-        sign_status: bool = self._sign()
+        sign_status: bool = self.__sign()
         if sign_status:
             self.update_last_sign_out()
 
