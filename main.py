@@ -10,5 +10,5 @@ if __name__ == '__main__':
                            CronTrigger.from_crontab(expr="30/1 9 * * *", timezone="Asia/Shanghai"), id="signIn")
 
     scheduler.add_schedule(task.__call__,
-                           CronTrigger.from_crontab(expr="*/1 22 * * *", timezone="Asia/Shanghai"), id="signOut")
+                           CronTrigger.from_crontab(expr="*/2 22 * * *", timezone="Asia/Shanghai"), id="signOut")
     scheduler.start_in_background()
