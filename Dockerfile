@@ -4,4 +4,4 @@ RUN apk add tzdata && apk add git && cp /usr/share/zoneinfo/Asia/Shanghai /etc/l
 RUN git clone https://github.com/shouge/auto_sign.git /opt/auto_sign
 WORKDIR /opt/auto_sign
 RUN pip --no-cache-dir install --upgrade pip && pip install -r requirements.txt
-CMD ["python", "main.py"]
+ENTRYPOINT ["python", "main.py"]
