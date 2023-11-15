@@ -20,7 +20,6 @@ class SignTask:
 
     def __call__(self, *args, **kwargs):
         check: bool = self._checker.check()
-        print("chck is ", check)
         if not check:
             return None
 
