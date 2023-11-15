@@ -37,12 +37,12 @@ class Sign(object):
         toady: date = date.today()
         response: requests.Response = requests.get(SIGN_RECORD_URL + str(toady), headers=HEADERS)
         if not requests.codes.ok == response.status_code:
-            raise RuntimeError("response http status code error.")
+            return None
 
         data: Dict = response.json()
         success: bool = data['success']
         if not success:
-            raise RuntimeError("response result fail.")
+            return None
 
         data_list: List = data['dataList']
         if len(data_list) == 0:
