@@ -7,7 +7,7 @@ if __name__ == '__main__':
     scheduler: Scheduler = Scheduler()
     task: SignTask = SignTask()
     scheduler.add_schedule(task.__call__,
-                           CronTrigger.from_crontab(expr="30/1 9 * * *", timezone="Asia/Shanghai"), id="signIn")
+                           CronTrigger.from_crontab(expr="40/2 9 * * *", timezone="Asia/Shanghai"), id="signIn")
 
     scheduler.add_schedule(task.__call__,
                            CronTrigger.from_crontab(expr="*/2 22 * * *", timezone="Asia/Shanghai"), id="signOut")
